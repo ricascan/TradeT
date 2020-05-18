@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp">
+
+            <TextView
+                android:id="@+id/textViewComentarioLista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="3"
+                android:textColor="@color/colorPrimary"
+                android:textSize="36sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textViewPuntuacionLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="nombre"
+            android:textColor="@color/colorTexto"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewNombreUsuarioValoradorLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="nombre"
+            android:textColor="@color/colorTexto"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewNombreUsuarioValoradoLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="nombre"
+            android:textColor="@color/colorTexto"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondo"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    tools:context=".ui.perfil.ModificarProductoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/editTextMProductoNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorHint"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editTextMProductoDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Descripción"
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorHint"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editTextMProductoPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:hint="Precio"
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorHint"
+            android:textSize="24sp" />
+
+        <Switch
+            android:id="@+id/switchMProductoEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="Disponible:"
+            android:textColor="@color/colorTexto"
+            android:textOff="Vendido"
+            android:textOn="Disponible"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textVieww2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="Categoría:"
+            android:textColor="@color/colorTexto"
+            android:textSize="24sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/carddd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+
+            android:layout_marginBottom="30dp"
+            android:padding="0dp"
+            app:cardBackgroundColor="@color/colorBoton">
+
+            <Spinner
+                android:id="@+id/spinnerMProductoCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonMProductoSImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBoton"
+
+                    android:text="Seleccionar imagen..."
+                    android:textColor="@color/colorTexto" />
+
+                <Button
+                    android:id="@+id/buttonMProductoBImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24sp"
+                    android:background="@color/colorBoton"
+
+                    android:text="Borrar imagen"
+                    android:textColor="@color/colorTexto" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewMProducto"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:src="@drawable/avatar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/buttonMProductoConfirmar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/colorBoton"
+                android:text="Confirmar cambios"
+                android:textColor="@color/colorTexto"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/buttonMProductoBorrar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorBoton"
+                android:text="Borrar producto"
+                android:textColor="@color/colorTexto"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

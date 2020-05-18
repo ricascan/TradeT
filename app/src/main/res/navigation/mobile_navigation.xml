@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_tienda">
+
+    <fragment
+        android:id="@+id/nav_tienda"
+        android:name="com.tradet.tradetapp.ui.tienda.TiendaFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_tienda" />
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.tradet.tradetapp.ui.perfil.PerfilFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/nav_usuarios"
+        android:name="com.tradet.tradetapp.ui.usuarios.UsuariosFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_usuarios" />
+
+    <fragment
+        android:id="@+id/nav_sorteos"
+        android:name="com.tradet.tradetapp.ui.sorteos.SorteosFragment"
+        android:label="@string/menu_tools"
+        tools:layout="@layout/fragment_sorteos" />
+
+</navigation>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Trade-T</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Cerrar Sesion</string>
+
+    <string name="menu_home">Tienda</string>
+    <string name="menu_gallery">Mi perfil</string>
+    <string name="menu_slideshow">Usuarios</string>
+    <string name="menu_tools">Sorteos</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_nuevo_producto">Nuevo Producto</string>
+    <string name="title_activity_modificar_producto">Map</string>
+
+
+</resources>

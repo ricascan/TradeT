@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="filtros2">
+        <item>Valoraciones hechas por mí.</item>
+        <item>Valoraciones hechas sobre mí.</item>
+    </string-array>
+
+</resources>
