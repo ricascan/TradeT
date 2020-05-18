@@ -1,13 +1,7 @@
 package com.tradet.tradetapp;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -25,16 +19,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+
+import com.bumptech.glide.Glide;
 import com.tradet.excepciones.ExcepcionTradeT;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -102,7 +98,8 @@ public class RegistroActivity extends AppCompatActivity {
     {
         if (requestCode == COD_MARCADA && resultCode == RESULT_OK) {
             Uri miPath = data.getData();
-            image.setImageURI(miPath);
+            Glide.with(getBaseContext()).load(miPath).into(image);
+
             try {
                 InputStream iStream = getContentResolver().openInputStream(miPath);
                 inputData = getBytes(iStream);
@@ -151,7 +148,7 @@ public class RegistroActivity extends AppCompatActivity {
                     rotatedBitmap = bitmap;
             }
 
-            image.setImageBitmap(rotatedBitmap);
+            Glide.with(getBaseContext()).load(rotatedBitmap).into(image);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 50, stream);
             inputData = stream.toByteArray();

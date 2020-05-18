@@ -1,11 +1,5 @@
 package com.tradet.tradetapp;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.FileProvider;
-import androidx.fragment.app.FragmentActivity;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.location.Location;
-
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.ExifInterface;
@@ -23,7 +16,6 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -35,6 +27,13 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.FragmentActivity;
+
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -202,7 +201,7 @@ public class NuevoProductoActivity extends FragmentActivity implements OnMapRead
     {
         if (requestCode == COD_MARCADA && resultCode == RESULT_OK) {
             Uri miPath = data.getData();
-            image.setImageURI(miPath);
+            Glide.with(getBaseContext()).load(miPath).into(image);
             try {
                 InputStream iStream = getContentResolver().openInputStream(miPath);
                 inputData = getBytes(iStream);
@@ -251,9 +250,9 @@ public class NuevoProductoActivity extends FragmentActivity implements OnMapRead
                     rotatedBitmap = bitmap;
             }
 
-            image.setImageBitmap(rotatedBitmap);
+            Glide.with(getBaseContext()).load(rotatedBitmap).into(image);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 50, stream);
+            rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 10, stream);
             inputData = stream.toByteArray();
         }
     }

@@ -2,17 +2,15 @@ package com.tradet.tradetapp.ui.usuarios;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.tradet.excepciones.ExcepcionTradeT;
 import com.tradet.tradetapp.ComunicacionServidor;

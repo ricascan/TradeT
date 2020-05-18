@@ -7,21 +7,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tradet.excepciones.ExcepcionTradeT;
 import com.tradet.tradetapp.ComunicacionServidor;
-
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.Sesion;
 import com.tradet.tradetapp.Usuario;
-
 import com.tradet.tradetapp.adapters.AdapterDatosUsuarios;
 
 import java.util.ArrayList;

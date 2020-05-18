@@ -23,9 +23,10 @@
 
             <ImageView
                 android:id="@+id/imageViewProductoFoto"
-                android:layout_width="match_parent"
+                android:layout_width="385dp"
                 android:layout_height="200dp"
-                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
                 app:srcCompat="@drawable/logo" />
         </androidx.cardview.widget.CardView>
 

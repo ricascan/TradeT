@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tradet.tradetapp.Producto;
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.ui.perfil.ModificarProductoFragment;
-
 
 import java.util.ArrayList;
 

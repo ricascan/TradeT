@@ -2,7 +2,6 @@ package com.tradet.tradetapp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Producto implements Serializable {

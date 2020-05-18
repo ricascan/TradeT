@@ -1,8 +1,6 @@
 package com.tradet.tradetapp.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +13,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tradet.tradetapp.Producto;
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.ui.tienda.ProductoFragment;
-
 
 import java.util.ArrayList;
 
@@ -67,8 +66,13 @@ public class AdapterDatosProductos extends RecyclerView.Adapter<AdapterDatosProd
         }
 
         void asignarDatos(final Producto producto) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(producto.getFoto(), 0, producto.getFoto().length);
-            imagenProducto.setImageBitmap(bitmap);
+
+
+            Glide.with(context).load(producto.getFoto()).fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(imagenProducto);
+
+
+
+
             nombreProducto.setText(producto.getNombre());
             precioProducto.setText(producto.getPrecio() + " €");
             view.setOnClickListener(new View.OnClickListener() {
@@ -85,5 +89,6 @@ public class AdapterDatosProductos extends RecyclerView.Adapter<AdapterDatosProd
                 }
             });
         }
+
     }
 }

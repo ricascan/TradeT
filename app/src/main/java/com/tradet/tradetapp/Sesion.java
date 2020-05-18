@@ -1,15 +1,10 @@
 package com.tradet.tradetapp;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.tradet.excepciones.ExcepcionTradeT;
 
-import java.net.ConnectException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.util.ArrayList;
-import java.util.zip.CheckedOutputStream;
 
 public class Sesion {
     public static Usuario activeUser;

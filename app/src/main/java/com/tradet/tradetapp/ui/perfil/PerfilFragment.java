@@ -26,6 +26,8 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.tabs.TabLayout;
 import com.tradet.excepciones.ExcepcionTradeT;
 import com.tradet.tradetapp.ComunicacionServidor;
@@ -71,8 +73,8 @@ public class PerfilFragment extends Fragment {
         viewPager.setCurrentItem(0);
 
         if(Sesion.activeUser.getFoto() != null) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(Sesion.activeUser.getFoto(), 0, Sesion.activeUser.getFoto().length);
-            image.setImageBitmap(bitmap);
+
+            Glide.with(getActivity()).load(Sesion.activeUser.getFoto()).fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(image);
         }
 
 
@@ -124,7 +126,7 @@ public class PerfilFragment extends Fragment {
     {
         if (requestCode == COD_MARCADA && resultCode == getActivity().RESULT_OK) {
             Uri miPath = data.getData();
-            image.setImageURI(miPath);
+            Glide.with(getActivity()).load(miPath).fitCenter().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(image);
             try {
                 InputStream iStream = getActivity().getContentResolver().openInputStream(miPath);
                 inputData = getBytes(iStream);
@@ -173,7 +175,7 @@ public class PerfilFragment extends Fragment {
                     rotatedBitmap = bitmap;
             }
 
-            image.setImageBitmap(rotatedBitmap);
+            Glide.with(getActivity()).load(rotatedBitmap).fitCenter().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(image);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 20, stream);
             inputData = stream.toByteArray();

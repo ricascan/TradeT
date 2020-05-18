@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,7 +15,6 @@ import com.tradet.tradetapp.ComunicacionServidor;
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.Sorteo;
 import com.tradet.tradetapp.adapters.AdapterDatosSorteos;
-import com.tradet.tradetapp.adapters.AdapterDatosUsuarios;
 
 import java.util.ArrayList;
 

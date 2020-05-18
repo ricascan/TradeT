@@ -1,15 +1,12 @@
 package com.tradet.tradetapp;
 
 
-
 import com.tradet.excepciones.ExcepcionTradeT;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
-import java.net.ConnectException;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

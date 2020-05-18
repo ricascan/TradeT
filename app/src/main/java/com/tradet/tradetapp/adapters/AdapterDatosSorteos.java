@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.Sorteo;
-import com.tradet.tradetapp.ui.perfil.ModificarProductoFragment;
 import com.tradet.tradetapp.ui.sorteos.SorteoFragment;
 
 import java.util.ArrayList;

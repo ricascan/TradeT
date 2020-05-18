@@ -3,12 +3,6 @@ package com.tradet.tradetapp.ui.perfil;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +11,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.tradet.excepciones.ExcepcionTradeT;
 import com.tradet.tradetapp.ComunicacionServidor;
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.Sesion;
 import com.tradet.tradetapp.Valoracion;
 import com.tradet.tradetapp.adapters.AdapterDatosValoraciones;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;

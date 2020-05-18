@@ -11,12 +11,6 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.FileProvider;
-import androidx.fragment.app.Fragment;
-
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -32,13 +26,19 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tradet.excepciones.ExcepcionTradeT;
 import com.tradet.tradetapp.Categoria;
 import com.tradet.tradetapp.ComunicacionServidor;
 import com.tradet.tradetapp.Producto;
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.Sesion;
-import com.tradet.tradetapp.ui.tienda.TiendaFragment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -102,8 +102,7 @@ public class ModificarProductoFragment extends Fragment {
         editTextNombre.setText(producto.getNombre());
         editTextDescripcion.setText(producto.getDescripcion());
         inputData = producto.getFoto();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(producto.getFoto(), 0, producto.getFoto().length);
-        image.setImageBitmap(bitmap);
+        Glide.with(getActivity()).load(producto.getFoto()).fitCenter().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(image);
         if(producto.getEstado().equals("DISPONIBLE")){
             switchEstado.setChecked(true);
         }else{
@@ -257,7 +256,7 @@ public class ModificarProductoFragment extends Fragment {
     {
         if (requestCode == COD_MARCADA && resultCode == getActivity().RESULT_OK) {
             Uri miPath = data.getData();
-            image.setImageURI(miPath);
+            Glide.with(getActivity()).load(miPath).fitCenter().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(image);
             try {
                 InputStream iStream = getActivity().getContentResolver().openInputStream(miPath);
                 inputData = getBytes(iStream);
@@ -306,7 +305,7 @@ public class ModificarProductoFragment extends Fragment {
                     rotatedBitmap = bitmap;
             }
 
-            image.setImageBitmap(rotatedBitmap);
+            Glide.with(getActivity()).load(rotatedBitmap).fitCenter().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(image);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 20, stream);
             inputData = stream.toByteArray();

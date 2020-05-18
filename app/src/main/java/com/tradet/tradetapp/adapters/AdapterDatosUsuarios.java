@@ -1,8 +1,6 @@
 package com.tradet.tradetapp.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +13,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tradet.tradetapp.R;
 import com.tradet.tradetapp.Usuario;
-import com.tradet.tradetapp.ui.perfil.ModificarProductoFragment;
 import com.tradet.tradetapp.ui.usuarios.UsuarioFragment;
 
 import java.util.ArrayList;
@@ -64,8 +62,8 @@ public class AdapterDatosUsuarios extends RecyclerView.Adapter<AdapterDatosUsuar
 
         void asignarDatos(final Usuario usuario) {
             if(usuario.getFoto() != null) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(usuario.getFoto(), 0, usuario.getFoto().length);
-                imagen.setImageBitmap(bitmap);
+
+                Glide.with(context).load(usuario.getFoto()).fitCenter().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(imagen);
             }
             nombreUsuario.setText(usuario.getNombre());
             view.setOnClickListener(new View.OnClickListener() {
