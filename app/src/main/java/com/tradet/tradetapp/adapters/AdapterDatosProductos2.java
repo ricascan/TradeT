@@ -1,10 +1,12 @@
 package com.tradet.tradetapp.adapters;
 
 import android.content.Context;
+import android.location.LocationManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -66,13 +68,19 @@ public class AdapterDatosProductos2 extends RecyclerView.Adapter<AdapterDatosPro
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FragmentManager fragmentManager = fragment.getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    ModificarProductoFragment productoFragment = new ModificarProductoFragment(producto);
-                    fragmentTransaction.addToBackStack("xyz");
-                    fragmentTransaction.hide(fragment);
-                    fragmentTransaction.add(R.id.nav_host_fragment, productoFragment);
-                    fragmentTransaction.commit();
+                    LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE );
+                    boolean statusOfGPS = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                    if(statusOfGPS) {
+                        FragmentManager fragmentManager = fragment.getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        ModificarProductoFragment productoFragment = new ModificarProductoFragment(producto);
+                        fragmentTransaction.addToBackStack("xyz");
+                        fragmentTransaction.hide(fragment);
+                        fragmentTransaction.add(R.id.nav_host_fragment, productoFragment);
+                        fragmentTransaction.commit();
+                    }else{
+                        Toast.makeText(context, "Para continuar active los servicios de ubicackón.", Toast.LENGTH_LONG).show();
+                    }
                 }
             });
         }

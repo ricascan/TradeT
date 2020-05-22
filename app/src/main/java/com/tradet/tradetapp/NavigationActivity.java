@@ -1,12 +1,15 @@
 package com.tradet.tradetapp;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -34,9 +37,15 @@ public class NavigationActivity extends AppCompatActivity implements ProductoFra
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(getApplicationContext(), NuevoProductoActivity.class);
-                startActivity(intent);
+                LocationManager manager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE );
+                boolean statusOfGPS = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                if(statusOfGPS) {
+                    Intent intent = new Intent();
+                    intent.setClass(getApplicationContext(), NuevoProductoActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Para continuar active los servicios de ubicación.", Toast.LENGTH_LONG).show();
+                }
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
