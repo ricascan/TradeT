@@ -23,7 +23,8 @@ import java.util.ArrayList;
 
 public class AdapterDatosProductos extends RecyclerView.Adapter<AdapterDatosProductos.ViewHolderDatos> {
 
-
+    private final int AD_TYPE = 1;
+    private final int CONTENT_TYPE = 2;
     private ArrayList<Producto> listaProdutocs;
     private Context context;
     private Fragment fragment;
@@ -37,13 +38,22 @@ public class AdapterDatosProductos extends RecyclerView.Adapter<AdapterDatosProd
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_productos, null, false);
-        return new ViewHolderDatos(view);
+        if(viewType == CONTENT_TYPE) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_productos, null, false);
+            return new ViewHolderDatos(view);
+        }else if(viewType == AD_TYPE){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.anuncio, null, false);
+            return new AnuncioViewHolder(view);
+        }
+        return null;
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
-        holder.asignarDatos(listaProdutocs.get(position));
+        if(holder.getItemViewType() == CONTENT_TYPE) {
+            holder.asignarDatos(listaProdutocs.get(position));
+        }
     }
 
     @Override
@@ -90,5 +100,19 @@ public class AdapterDatosProductos extends RecyclerView.Adapter<AdapterDatosProd
             });
         }
 
+
+
+    }
+    class AnuncioViewHolder extends ViewHolderDatos {
+        public AnuncioViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(listaProdutocs.get(position)==null)
+            return AD_TYPE;
+        return CONTENT_TYPE;
     }
 }

@@ -133,6 +133,7 @@ public class TiendaFragment extends Fragment {
     private void actualizarLista(String filtro) {
         ComunicacionServidor comunicacionServidor = new ComunicacionServidor();
         ArrayList<Producto> listaProductos = null;
+        ArrayList<Producto> listaProductos2 = new ArrayList<>();
         try {
             if (filtro == null) {
                 listaProductos = comunicacionServidor.leerProductos();
@@ -142,8 +143,15 @@ public class TiendaFragment extends Fragment {
         } catch (ExcepcionTradeT excepcionTradeT) {
             excepcionTradeT.printStackTrace();
         }
+        for(int i=0;i<listaProductos.size();i++){
+            if(i%5==0)
+            {
+                listaProductos2.add(null);
+            }
+            listaProductos2.add(listaProductos.get(i));
+        }
 
-        final AdapterDatosProductos adapter = new AdapterDatosProductos(listaProductos, getActivity().getApplicationContext(), this);
+        final AdapterDatosProductos adapter = new AdapterDatosProductos(listaProductos2, getActivity().getApplicationContext(), this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);
 
