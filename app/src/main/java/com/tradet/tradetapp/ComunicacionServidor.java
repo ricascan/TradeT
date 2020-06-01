@@ -751,6 +751,48 @@ public class ComunicacionServidor {
     }
 
 
+    public ArrayList<Usuario> leerUsuariosNoImagen() throws ExcepcionTradeT {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HashMap peticion = new HashMap();
+                peticion.put("peticion", "leer usuarios no imagen");
+                try {
+                    Socket socket = new Socket(IP, PUERTO);
+                    ObjectOutputStream flujoSalida = new ObjectOutputStream(socket.getOutputStream());
+                    flujoSalida.writeObject(peticion);
+                    flujoSalida.flush();
+                    ObjectInputStream flujoEntrada = new ObjectInputStream(socket.getInputStream());
+                    resultado = flujoEntrada.readObject();
+                    if(resultado instanceof ArrayList){
+                        listaHash = (ArrayList<HashMap>) resultado;
+                    }else if (resultado instanceof ExcepcionTradeT){
+                        excepcionTradeT = (ExcepcionTradeT) resultado;
+                    }
+                    flujoEntrada.close();
+                    flujoSalida.close();
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
 
 
+            }
+        }).start();
+        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+        while (excepcionTradeT == null && listaHash == null) {
+            System.out.printf("");
+        }
+        if (excepcionTradeT != null)
+            throw excepcionTradeT;
+
+        for (HashMap map : listaHash) {
+            Usuario u = new Usuario(map);
+            listaUsuarios.add(u);
+        }
+
+        return listaUsuarios;
+    }
 }

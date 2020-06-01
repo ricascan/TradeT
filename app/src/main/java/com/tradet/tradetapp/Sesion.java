@@ -14,7 +14,7 @@ public class Sesion {
         ComunicacionServidor cs = new ComunicacionServidor();
 
         try {
-            ArrayList<Usuario> listaUsuarios = cs.leerUsuarios();
+            ArrayList<Usuario> listaUsuarios = cs.leerUsuariosNoImagen();
             System.out.println(ComunicacionServidor.getMD5(contrasena));
 
             System.out.println(listaUsuarios);
