@@ -22,10 +22,10 @@
 
             <ImageView
                 android:id="@+id/imageViewListaUsuarios"
-                android:layout_width="385dp"
+                android:layout_width="378dp"
                 android:layout_height="200dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/logo" />
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/avatar" />
         </androidx.cardview.widget.CardView>
 
         <TextView
