@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Nombre"
+        android:hint="Buscar..."
         android:inputType="textPersonName"
         android:textColor="@color/colorTexto"
         android:textColorHint="@color/colorHint"

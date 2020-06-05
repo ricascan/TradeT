@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
                     String nombre = editTextNombre.getText().toString().trim();
                     String contrasena = editTextContrasena.getText().toString().trim();
                     if(Sesion.iniciarSesion(getApplicationContext(), nombre, contrasena)) {
-                        Toast.makeText(getApplicationContext(), "Correcto", Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent();
                         intent.setClass(getApplicationContext(), NavigationActivity.class);
                         startActivity(intent);
                     }
                     else
-                        Toast.makeText(getApplicationContext(), "Incorrecto", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Nombre o contraseña incorrectos", Toast.LENGTH_SHORT).show();
 
                 }
             }

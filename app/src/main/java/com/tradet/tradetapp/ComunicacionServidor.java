@@ -250,12 +250,13 @@ public class ComunicacionServidor {
 
 
 
-    public Usuario leerUsuario() throws ExcepcionTradeT {
+    public Usuario leerUsuario(final Integer id) throws ExcepcionTradeT {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 HashMap peticion = new HashMap();
                 peticion.put("peticion", "leer usuario");
+                peticion.put("argumento", id);
                 try {
                     Socket socket = new Socket(IP, PUERTO);
                     ObjectOutputStream flujoSalida = new ObjectOutputStream(socket.getOutputStream());
@@ -280,7 +281,7 @@ public class ComunicacionServidor {
 
             }
         }).start();
-        while (excepcionTradeT == null && listaHash == null) {
+        while (excepcionTradeT == null && objetoRespuesta == null) {
             System.out.printf("");
         }
         if (excepcionTradeT != null)

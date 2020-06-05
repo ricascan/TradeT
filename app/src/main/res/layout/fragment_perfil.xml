@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/imageViewPerfil"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerInside"
 
         app:srcCompat="@drawable/avatar" />
 

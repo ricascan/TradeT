@@ -26,8 +26,10 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Buscar..."
             android:inputType="textPersonName"
-            android:textColor="@color/colorTexto" />
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorHint" />
 
         <LinearLayout
             android:id="@+id/ly"

@@ -74,7 +74,7 @@ public class PerfilFragment extends Fragment {
 
         if(Sesion.activeUser.getFoto() != null) {
 
-            Glide.with(getActivity()).load(Sesion.activeUser.getFoto()).fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(image);
+            Glide.with(getActivity()).load(Sesion.activeUser.getFoto()).fitCenter().into(image);
         }
 
 
@@ -180,14 +180,16 @@ public class PerfilFragment extends Fragment {
             rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);
             inputData = stream.toByteArray();
         }
-
-        ComunicacionServidor comunicacionServidor = new ComunicacionServidor();
-        Sesion.activeUser.setFoto(inputData);
-        try {
-            comunicacionServidor.modificarUsuario(Sesion.activeUser);
-            Toast.makeText(getActivity(), "Foto de perifl modificada correctamente.", Toast.LENGTH_SHORT).show();
-        } catch (ExcepcionTradeT excepcionTradeT) {
-            Toast.makeText(getActivity(), excepcionTradeT.getMensajeUsuario(), Toast.LENGTH_LONG).show();
+        if(inputData != null) {
+            ComunicacionServidor comunicacionServidor = new ComunicacionServidor();
+            Sesion.activeUser.setFoto(inputData);
+            try {
+                comunicacionServidor.modificarUsuario(Sesion.activeUser);
+                Toast.makeText(getActivity(), "Foto de perifl modificada correctamente.", Toast.LENGTH_SHORT).show();
+                inputData = null;
+            } catch (ExcepcionTradeT excepcionTradeT) {
+                Toast.makeText(getActivity(), excepcionTradeT.getMensajeUsuario(), Toast.LENGTH_LONG).show();
+            }
         }
     }
     private Bitmap rotateImage(Bitmap source, float angle) {

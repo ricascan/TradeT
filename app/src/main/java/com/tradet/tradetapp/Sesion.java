@@ -21,7 +21,7 @@ public class Sesion {
             for (Usuario u : listaUsuarios) {
 
                 if (u.getNombre().equals(nombre) && u.getContrasena().equals(ComunicacionServidor.getMD5(contrasena))) {
-                    activeUser = u;
+                    activeUser = cs.leerUsuario(u.getUsuarioId());
                     return true;
                 }
 
