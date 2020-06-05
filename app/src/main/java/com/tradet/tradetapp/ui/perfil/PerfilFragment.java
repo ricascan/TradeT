@@ -177,7 +177,7 @@ public class PerfilFragment extends Fragment {
 
             Glide.with(getActivity()).load(rotatedBitmap).fitCenter().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(image);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 20, stream);
+            rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);
             inputData = stream.toByteArray();
         }
 

@@ -150,7 +150,7 @@ public class RegistroActivity extends AppCompatActivity {
 
             Glide.with(getBaseContext()).load(rotatedBitmap).into(image);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 50, stream);
+            rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);
             inputData = stream.toByteArray();
         }
     }

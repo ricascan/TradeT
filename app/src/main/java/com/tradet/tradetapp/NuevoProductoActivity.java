@@ -252,7 +252,7 @@ public class NuevoProductoActivity extends FragmentActivity implements OnMapRead
 
             Glide.with(getBaseContext()).load(rotatedBitmap).into(image);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 10, stream);
+            rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);
             inputData = stream.toByteArray();
         }
     }
