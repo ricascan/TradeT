@@ -77,7 +77,7 @@ public class AdapterDatosProductos extends RecyclerView.Adapter<AdapterDatosProd
 
         void asignarDatos(final Producto producto) {
 
-            Glide.with(context).load(producto.getFoto()).fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(imagenProducto);
+            Glide.with(context).load(producto.getFoto()).fitCenter().into(imagenProducto);
 
 
 
